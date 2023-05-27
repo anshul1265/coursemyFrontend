@@ -1,0 +1,39 @@
+import { Box, Button, Container, Heading, Text, VStack } from '@chakra-ui/react'
+import React from 'react'
+import { RiCheckboxCircleFill } from 'react-icons/ri'
+import { Link, useSearchParams } from 'react-router-dom'
+
+const PaymentSuccess = () => {
+
+	const reference = useSearchParams()[0].get("reference");
+
+	return (
+		<Container h='90vh' padding='16'>
+			<Heading my={'8'} textAlign={'center'} children='You have Pro Pack' />
+			<VStack boxShadow={'lg'} pb={'16'} alignItems={'center'} borderRadius={'lg'}>
+				<Box
+					width={'full'}
+					bgColor={'yellow.400'}
+					padding={'4'}
+					css={{ borderRadius: '8px 8px 0 0' }}
+				>
+					<Text children='Payment Success' color='black' />
+				</Box>
+				<Box p='4'>
+					<VStack textAlign={'center'} px='8' marginTop={'4'} spacing={'8'}>
+						<Text>Congratulations! You are a Pro Member. You have the access to Pro Content.</Text>
+						<Heading size={'3xl'}>
+							<RiCheckboxCircleFill />
+						</Heading>
+					</VStack>
+				</Box>
+				<Link to='/profile'>
+					<Button variant={'ghost'}>Go to your Profile</Button>
+				</Link>
+				<Heading size={'xs'}>Reference no. : {reference}</Heading>
+			</VStack>
+		</Container>
+	)
+}
+
+export default PaymentSuccess
