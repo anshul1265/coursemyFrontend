@@ -6,7 +6,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 export const LineChart = ({ views = [] }) => {
 
-  const labels = getLastYearMonth();;
+  const labels = getLastYearMonth();
   const options = {
     responsive: true,
     plugin: {
